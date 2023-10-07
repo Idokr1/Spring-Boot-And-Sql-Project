@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.handson.basic.util.Dates;
+import com.handson.basic.util.AWSService;
 
 import java.util.Date;
 
@@ -46,6 +47,19 @@ public class StudentOut {
 
     public Integer getSatscore() {
         return satscore;
+    }
+    public static StudentOut of(Student student, AWSService awsService) {
+        StudentOut res = new StudentOut();
+        res.id = student.getId();
+        res.createdat = student.getCreatedAt();
+        res.fullname = student.getFullname();
+        res.birthdate = student.getBirthDate();
+        res.satscore = student.getSatScore();
+        res.graduationscore = student.getGraduationScore();
+        res.phone = student.getPhone();
+        res.profilepicture = awsService.generateLink(student.getProfilePicture());
+        res.avgscore = null;
+        return res;
     }
 
     public Double getGraduationscore() {
