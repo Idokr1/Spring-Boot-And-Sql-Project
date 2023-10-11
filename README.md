@@ -1076,9 +1076,9 @@ nivitzhaky
 <br>
 Jul201789#
 <br>
-docker tag basic-spring  nivitzhaky/basic-spring:niv-001
+docker tag basic-spring  idokr/basic-spring:idokr-001
 <br>
-docker push nivitzhaky/basic-spring:niv-001
+docker push idokr/basic-spring:idokr-001
 <br>
 in docker-comopse-local.yml change image nivitzhaky/basic-spring:niv-001
 <br>
@@ -1095,7 +1095,7 @@ docker-compose -f docker-compose-ci.yml up -d --force-recreate --build
 <br>
 docker-compose -f docker-compose-ci.yml run wait -c server:8080 -t 120
 <br>
-docker exec  niv-basicspring_newman_1 newman run STUDENTS_TEST.postman_collection.json --reporters cli,junit,htmlextra --reporter-junit-export "newman/report.xml" --reporter-htmlextra-export "newman/report.html" 
+docker exec  idok-basicspring_newman_1 newman run STUDENTS_TEST.postman_collection.json --reporters cli,junit,htmlextra --reporter-junit-export "newman/report.xml" --reporter-htmlextra-export "newman/report.html" 
 <br>
 check test/newman/report.html
 
